@@ -1,0 +1,134 @@
+.header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0,0,0,0.6);
+}
+
+p {
+    color: white;
+    font-family: sans-serif;
+}
+
+.goback{
+			left: 0;
+			right: 0;
+			bottom:0;
+			margin: auto;
+			z-index: 999;
+			color: #fff;
+			width: auto;
+			height: auto;
+			font-size: 40px;
+			text-align: center;
+			cursor: pointer;
+		}
+		#start_button {
+			width: 126px;
+			margin: 0 auto 15px auto;
+		}
+		#start_button:hover {
+			position: relative;
+		    width: 147px;
+		    background: #FFF;
+		    color: #181819;
+		    padding-right: 27px;
+		}
+		.btn-boxy {
+			position: relative;
+			margin-top: 18px;
+			display: inline-block;
+			*
+			display: inline;
+			*
+			zoom: 1;
+			overflow: hidden;
+			background: none;
+			text-align: center;
+			line-height: 43px;
+			border: solid 2px #fff;
+			font-family: "franklin-gothic-ext-comp-urw", sans-serif;
+			text-transform: uppercase;
+			font-weight: 700;
+			font-style: normal;
+			color: #fff;
+			letter-spacing: 3px;
+			font-size: 20px;
+			color: #FFF;
+			-webkit-animation-fill-mode: both;
+			-moz-animation-fill-mode: both;
+			-ms-animation-fill-mode: both;
+			-o-animation-fill-mode: both;
+			animation-fill-mode: both;
+			-webkit-animation-duration: 1s;
+			-moz-animation-duration: 1s;
+			-ms-animation-duration: 1s;
+			-o-animation-duration: 1s;
+			animation-duration: 1s;
+			-webkit-animation-name: fadeIn;
+			-moz-animation-name: fadeIn;
+			-o-animation-name: fadeIn;
+			animation-name: fadeIn;
+			-webkit-animation-delay: 2s;
+			-moz-animation-delay: 2s;
+			-ms-animation-delay: 2s;
+			-o-animation-delay: 2s;
+			-webkit-transition: all .2s ease-in-out;
+			-moz-transition: all .2s ease-in-out;
+			-ms-transition: all .2s ease-in-out;
+			-o-transition: all .2s ease-in-out;
+			text-decoration: none;
+			letter-spacing: 2px;
+			text-decoration: none;
+		}
+		.btn-boxy span {
+		    position: absolute;
+		    display: block;
+		    width: 0px;
+		    height: 50px;
+		    top: -4px;
+		    right: 7px;
+		    -webkit-transition: all .2s ease-in-out;
+		    -moz-transition: all .2s ease-in-out;
+		    -ms-transition: all .2s ease-in-out;
+		    -o-transition: all .2s ease-in-out;
+		    transition: all .2s ease-in-out;
+		    background: url(https://i.loli.net/2020/08/18/C9raqZdBtxAENh3.png) no-repeat 0 0;
+		}
+
+select#class_selector {
+	margin: 10px;
+  width: 130px;
+  padding: 5px 5px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(https://stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
+}
+
+select::-ms-expand { 
+    display: none; /* remove default arrow on ie10 and ie11 */
+}
+
+/* target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    select {
+        background:none\9;
+        padding: 5px\9;
+    } 
+}
+
+select#speed_selector {
+	margin: 10px;
+  width: 70px;
+  padding: 5px 5px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

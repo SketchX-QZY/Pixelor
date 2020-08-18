@@ -1,0 +1,46 @@
+#welcome {
+    height: 400px;
+    width: 400px;
+    margin: auto;
+    position: absolute;
+}
+
+#disclaimer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1 auto 1 auto;
+    grid-template-rows: 1 auto 1 auto 1 auto 1 auto;
+    grid-template-areas: "Header Header" "Human AI" "Result Result" "Footer Footer";
+}
+
+.Title {
+    grid-area: Header;
+    display: none;
+}
+
+.Human {
+    grid-area: Human;
+    display: none;
+    margin-left: 120px;
+}
+
+.AI {
+    grid-area: AI;
+    display: none;
+}
+
+.Result {
+    grid-area: Result;
+    display: none;
+}
+
+.Footer {
+    grid-area: Footer;
+    display: none;
+}
+

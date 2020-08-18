@@ -1,0 +1,303 @@
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Pixelary</title>
+    <script src="./Pixelary_files/jquery.min.js"></script>
+    <script src="./Pixelary_files/Chart.js"></script>
+    <script src="./Pixelary_files/tf.min.js"></script>
+    <script type="text/javascript">
+    document.getElementById('start_button').onmouseover = function() {
+        this.childNodes[1].style.width = '25px';
+    }
+    document.getElementById('start_button').onmouseout = function() {
+        this.childNodes[1].style.width = '0px';
+    }
+    </script>
+    
+    <link rel="stylesheet" href="./Pixelary_files/styles.css">
+    <link rel="stylesheet" href="./Pixelary_files/inspector-stylesheet.css">
+<style type="text/css">/* Chart.js */
+/*
+ * DOM element rendering detection
+ * https://davidwalsh.name/detect-node-insertion
+ */
+@keyframes chartjs-render-animation {
+    from { opacity: 0.99; }
+    to { opacity: 1; }
+}
+
+.chartjs-render-monitor {
+    animation: chartjs-render-animation 0.001s;
+}
+
+/*
+ * DOM element resizing detection
+ * https://github.com/marcj/css-element-queries
+ */
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+    position: absolute;
+    direction: ltr;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+    position: absolute;
+    width: 1000000px;
+    height: 1000000px;
+    left: 0;
+    top: 0;
+}
+
+.chartjs-size-monitor-shrink > div {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: 0;
+}
+</style><style type="text/css">/* Chart.js */
+/*
+ * DOM element rendering detection
+ * https://davidwalsh.name/detect-node-insertion
+ */
+@keyframes chartjs-render-animation {
+    from { opacity: 0.99; }
+    to { opacity: 1; }
+}
+
+.chartjs-render-monitor {
+    animation: chartjs-render-animation 0.001s;
+}
+
+/*
+ * DOM element resizing detection
+ * https://github.com/marcj/css-element-queries
+ */
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+    position: absolute;
+    direction: ltr;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+    position: absolute;
+    width: 1000000px;
+    height: 1000000px;
+    left: 0;
+    top: 0;
+}
+
+.chartjs-size-monitor-shrink > div {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: 0;
+}
+</style><style type="text/css">/* Chart.js */
+/*
+ * DOM element rendering detection
+ * https://davidwalsh.name/detect-node-insertion
+ */
+@keyframes chartjs-render-animation {
+    from { opacity: 0.99; }
+    to { opacity: 1; }
+}
+
+.chartjs-render-monitor {
+    animation: chartjs-render-animation 0.001s;
+}
+
+/*
+ * DOM element resizing detection
+ * https://github.com/marcj/css-element-queries
+ */
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+    position: absolute;
+    direction: ltr;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+    position: absolute;
+    width: 1000000px;
+    height: 1000000px;
+    left: 0;
+    top: 0;
+}
+
+.chartjs-size-monitor-shrink > div {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: 0;
+}
+</style></head>
+<body style="
+    margin: auto;
+">
+    <div class="header" style="
+">
+        <a style="margin-left:-1%,margin-top:-1%" class="navbar-brand" href="#"><img class="navbar-image" src="http://sketchx.eecs.qmul.ac.uk/wp-content/uploads/sites/27/2019/03/cropped-cropped-logo_v6.jpg" style="float:left;width: 285px;margin-left: 30px;margin-right: 50px;"></a>
+    
+    <p>
+        <span>I want to draw a </span>
+        <select id="class_selector">
+            <option value="bicycle">bicycle</option>
+            <option value="binoculars">binoculars</option>
+            <option value="birthday_cake">birthday cake</option>
+            <option value="book">book</option>
+            <option value="butterfly">butterfly</option>
+            <option value="calculator">calculator</option>
+            <option value="cat">cat</option>
+            <option value="chandelier">chandelier</option>
+            <option value="computer">computer</option>
+            <option value="cow">cow</option>
+            <option value="cruise_ship">cruise ship</option>
+            <option value="face" selected="">face</option>
+            <option value="flower">flower</option>
+            <option value="guitar">guitar</option>
+            <option value="mosquito">mosquito</option>
+            <option value="piano">piano</option>
+            <option value="pineapple">pineapple</option>
+            <option value="sun">sun</option>
+            <option value="truck">truck</option>
+            <option value="windmill">windmill</option>
+        </select>
+        <span> or </span>
+        <button type="button" onclick="roll();" id="random_button" style="
+    height: 36px;
+    width: 76px;
+    margin: 10px;
+">Random</button>
+    
+        <span> in a </span>
+        <select id="speed_selector">
+            <option value="0.5">Easy</option>
+            <option value="1.0" selected="">Normal</option>
+            <option value="2.0">Hard</option>
+        </select>
+        <span> mode.</span>
+        </p>
+    
+    <p>
+        <span id="status"></span>
+    </p>
+    <p style="text-align:center">
+        <span id="counting"></span>
+    </p>
+    
+    <div class="goback" style="height: 40px;">
+            <a href="javascript:void(0);" onclick="prep();" class="discover btn-boxy" id="start_button" style="
+    width: 150px;
+    height: 40px;
+    margin-top: 0px;
+">Let's Go!<span></span></a>
+        </div>
+    
+       </div>
+    
+<div id="welcome" style="display: none;">
+    <p>
+        <span>I want to draw a </span>
+        <select id="class_selector">
+            <option value="bicycle">bicycle</option>
+            <option value="binoculars">binoculars</option>
+            <option value="birthday_cake">birthday cake</option>
+            <option value="book">book</option>
+            <option value="butterfly">butterfly</option>
+            <option value="calculator">calculator</option>
+            <option value="cat">cat</option>
+            <option value="chandelier">chandelier</option>
+            <option value="computer">computer</option>
+            <option value="cow">cow</option>
+            <option value="cruise_ship">cruise ship</option>
+            <option value="face" selected="">face</option>
+            <option value="flower">flower</option>
+            <option value="guitar">guitar</option>
+            <option value="mosquito">mosquito</option>
+            <option value="piano">piano</option>
+            <option value="pineapple">pineapple</option>
+            <option value="sun">sun</option>
+            <option value="truck">truck</option>
+            <option value="windmill">windmill</option>
+        </select>
+        <span> or </span>
+        <button type="button" onclick="roll();" id="random_button">Random</button>
+    </p>
+    <p>
+        <span>I want to play a </span>
+        <select id="speed_selector">
+            <option value="0.5">Easy</option>
+            <option value="1.0" selected="">Normal</option>
+            <option value="2.0">Hard</option>
+        </select>
+        <span> mode</span>
+    </p>
+    <p style="text-align:center">
+        <button type="button" onclick="prep();" id="start_button">I am ready!</button>
+    </p>
+    <p>
+        <span id="status">Loading Classifier... AI is preparing... Classifier Loaded. AI is preparing... AI is ready! </span>
+    </p>
+    <p style="text-align:center">
+        <span id="counting">Game starts in 0 seconds.</span>
+    </p>
+    <!--
+    <span id="disclaimer">Disclaimer: (i) this is an online demo of Pixelary as part of paper submission #332 in SIGGRAPH Asia 2020; (ii) the demo is for entertainment purposes only and different to the offline version we used for human study.
+    </span>
+    -->
+</div>
+<div class="grid-container">
+    <div class="Title" style="display: block;">
+        <p style="text-align:center">
+            <span id="text_area"><b>Draw a face.</b></span>
+            <button type="button" onclick="reset_all();" id="restart_button">Restart</button>
+        </p>
+    </div>
+    <div class="Human" style="display: block;">
+        <canvas id="pad_human" width="500" height="500" style="border:1px solid #ff6384;"></canvas>
+    </div>
+    <div class="AI" style="display: block;">
+        <canvas id="pad_ai" width="500" height="500" style="border:1px solid #36a2eb;"></canvas>
+    </div>
+    <div class="Result" style="display: block;">
+        <canvas id="acc_chart" style="display: block;height: 300px;width: 1000px;margin-left: 120px;" width="800" height="400"></canvas>
+    </div>
+    <div class="Footer" style="display: block;">
+        <span id="winner_area"></span>
+    </div>
+    <script src="./Pixelary_files/sketch.js"></script>
+</div>
+
+
+<st-div id="__selection-translator__"> <st-div class="__st-box__" style="display: none; position: fixed; z-index: 99999; left: 0px; top: 0px; transform: translateX(715px) translateY(56px);"> <st-header> <st-span class="st-icon-pin" title="固定"></st-span> <st-span class="st-icon-down-open" title="展开"></st-span> <st-span class="st-icon-cog" title="设置"></st-span> </st-header> <st-div class="__query-form__" style="display: none;"> <st-div> <textarea placeholder="输入要翻译的句子或单词"></textarea> </st-div> <st-div> <select> <option value="">自动判断</option> <option value="zh">中文</option><option value="zh-CN">中文(简体)</option><option value="zh-HK">中文(香港)</option><option value="zh-TW">中文(繁体)</option><option value="en">英语</option><option value="ja">日语</option><option value="ko">朝鲜语</option><option value="de">德语</option><option value="fr">法语</option><option value="ru">俄语</option><option value="th">泰语</option><option value="af">南非语</option><option value="ar">阿拉伯语</option><option value="az">阿塞拜疆语</option><option value="be">比利时语</option><option value="bg">保加利亚语</option><option value="ca">加泰隆语</option><option value="cs">捷克语</option><option value="cy">威尔士语</option><option value="da">丹麦语</option><option value="dv">第维埃语</option><option value="el">希腊语</option><option value="eo">世界语</option><option value="es">西班牙语</option><option value="et">爱沙尼亚语</option><option value="eu">巴士克语</option><option value="fa">法斯语</option><option value="fi">芬兰语</option><option value="fo">法罗语</option><option value="gl">加里西亚语</option><option value="gu">古吉拉特语</option><option value="he">希伯来语</option><option value="hi">印地语</option><option value="hr">克罗地亚语</option><option value="hu">匈牙利语</option><option value="hy">亚美尼亚语</option><option value="id">印度尼西亚语</option><option value="is">冰岛语</option><option value="it">意大利语</option><option value="ka">格鲁吉亚语</option><option value="kk">哈萨克语</option><option value="kn">卡纳拉语</option><option value="kok">孔卡尼语</option><option value="ky">吉尔吉斯语</option><option value="lt">立陶宛语</option><option value="lv">拉脱维亚语</option><option value="mi">毛利语</option><option value="mk">马其顿语</option><option value="mn">蒙古语</option><option value="mr">马拉地语</option><option value="ms">马来语</option><option value="mt">马耳他语</option><option value="nb">挪威语(伯克梅尔)</option><option value="nl">荷兰语</option><option value="ns">北梭托语</option><option value="pa">旁遮普语</option><option value="pl">波兰语</option><option value="pt">葡萄牙语</option><option value="qu">克丘亚语</option><option value="ro">罗马尼亚语</option><option value="sa">梵文</option><option value="se">北萨摩斯语</option><option value="sk">斯洛伐克语</option><option value="sl">斯洛文尼亚语</option><option value="sq">阿尔巴尼亚语</option><option value="sv">瑞典语</option><option value="sw">斯瓦希里语</option><option value="syr">叙利亚语</option><option value="ta">泰米尔语</option><option value="te">泰卢固语</option><option value="tl">塔加路语</option><option value="tn">茨瓦纳语</option><option value="tr">土耳其语</option><option value="ts">宗加语</option><option value="tt">鞑靼语</option><option value="uk">乌克兰语</option><option value="ur">乌都语</option><option value="uz">乌兹别克语</option><option value="vi">越南语</option><option value="xh">班图语</option><option value="zu">祖鲁语</option> </select> <st-div class="__exchange__"> <st-span class="st-icon-exchange"></st-span> </st-div> <select> <option value="">自动选择</option> <option value="zh">中文</option><option value="zh-CN">中文(简体)</option><option value="zh-HK">中文(香港)</option><option value="zh-TW">中文(繁体)</option><option value="en">英语</option><option value="ja">日语</option><option value="ko">朝鲜语</option><option value="de">德语</option><option value="fr">法语</option><option value="ru">俄语</option><option value="th">泰语</option><option value="af">南非语</option><option value="ar">阿拉伯语</option><option value="az">阿塞拜疆语</option><option value="be">比利时语</option><option value="bg">保加利亚语</option><option value="ca">加泰隆语</option><option value="cs">捷克语</option><option value="cy">威尔士语</option><option value="da">丹麦语</option><option value="dv">第维埃语</option><option value="el">希腊语</option><option value="eo">世界语</option><option value="es">西班牙语</option><option value="et">爱沙尼亚语</option><option value="eu">巴士克语</option><option value="fa">法斯语</option><option value="fi">芬兰语</option><option value="fo">法罗语</option><option value="gl">加里西亚语</option><option value="gu">古吉拉特语</option><option value="he">希伯来语</option><option value="hi">印地语</option><option value="hr">克罗地亚语</option><option value="hu">匈牙利语</option><option value="hy">亚美尼亚语</option><option value="id">印度尼西亚语</option><option value="is">冰岛语</option><option value="it">意大利语</option><option value="ka">格鲁吉亚语</option><option value="kk">哈萨克语</option><option value="kn">卡纳拉语</option><option value="kok">孔卡尼语</option><option value="ky">吉尔吉斯语</option><option value="lt">立陶宛语</option><option value="lv">拉脱维亚语</option><option value="mi">毛利语</option><option value="mk">马其顿语</option><option value="mn">蒙古语</option><option value="mr">马拉地语</option><option value="ms">马来语</option><option value="mt">马耳他语</option><option value="nb">挪威语(伯克梅尔)</option><option value="nl">荷兰语</option><option value="ns">北梭托语</option><option value="pa">旁遮普语</option><option value="pl">波兰语</option><option value="pt">葡萄牙语</option><option value="qu">克丘亚语</option><option value="ro">罗马尼亚语</option><option value="sa">梵文</option><option value="se">北萨摩斯语</option><option value="sk">斯洛伐克语</option><option value="sl">斯洛文尼亚语</option><option value="sq">阿尔巴尼亚语</option><option value="sv">瑞典语</option><option value="sw">斯瓦希里语</option><option value="syr">叙利亚语</option><option value="ta">泰米尔语</option><option value="te">泰卢固语</option><option value="tl">塔加路语</option><option value="tn">茨瓦纳语</option><option value="tr">土耳其语</option><option value="ts">宗加语</option><option value="tt">鞑靼语</option><option value="uk">乌克兰语</option><option value="ur">乌都语</option><option value="uz">乌兹别克语</option><option value="vi">越南语</option><option value="xh">班图语</option><option value="zu">祖鲁语</option> </select> </st-div> <st-div> <select> <option value="YouDao">有道翻译</option> <option value="BaiDu">百度翻译</option> <option value="Google">谷歌翻译</option> <option value="GoogleCN">谷歌翻译（国内）</option> </select> <st-div class="__action-list__"> <st-div class="__button__ __btn-translate__">翻译 <st-span class="st-icon-down-dir"></st-span> </st-div> <st-div class="__expand__"> <st-div class="__button__">朗读</st-div> <st-div class="__button__">复制</st-div> </st-div> </st-div> </st-div> </st-div> <st-div class="__translate-result__" style="display: none;">正在查询，请稍候……</st-div> <st-div class="__translate-result__"> <st-div style="display: none;"> <st-span></st-span> <st-span class="__retry__">重试</st-span> </st-div> <st-div> <st-div class="__phonetic__"> <st-span style="display: none;"></st-span> <st-span class="__copy-and-read__"> <st-span>朗读</st-span> <st-span style="display: none;">复制</st-span> </st-span> </st-div> <st-div style="display: none;"> <st-ul>  </st-ul> <st-div class="__copy-and-read__"> <st-span class="__copy-and-read__">复制</st-span> </st-div> </st-div> <st-div style="display: none;">  <st-div class="__copy-and-read__"> <st-span class="__copy-and-read__">朗读</st-span> <st-span class="__copy-and-read__">复制</st-span> </st-div> </st-div> </st-div> </st-div> <st-footer> <st-span style="">via <a target="_blank" href="http://surrey.ac:9999/?nsukey=gPXSLKeHAiMI3wSlxXXzk7XJ6PNr%2FE9eNN9t5MmjD2bxdqUvMd4BrhqNsFACOOt5aaVS7rHpdppWSJMlZmA1S4xuoV1l67M71a414MyOO8Ium1pQRSwkh7ZSm7jJfPjyLXXDoZiZj4EY9ANDUNaggnNug5%2FvdrcQoSjrqhgVl%2B6lb5l2ArUpf4OMow6C1oAGstXThj%2B8uq9hG49bQtGDSA%3D%3D">百度翻译</a></st-span> </st-footer> </st-div> <st-div class="__st-btn__" style="display: none; position: fixed; z-index: 99999; left: 0px; top: 0px; transform: translateX(715px) translateY(56px);">译</st-div> </st-div>
+
+</body></html>

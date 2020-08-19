@@ -13,8 +13,6 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1 auto 1 auto;
-    grid-template-rows: 1 auto 1 auto 1 auto 1 auto;
     grid-template-areas: "Header Header" "Human AI" "Result Result" "Footer Footer";
 }
 

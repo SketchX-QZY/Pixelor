@@ -207,13 +207,6 @@
         <span> mode.</span>
         </p>
     
-    <p>
-        <span id="status"></span>
-    </p>
-    <p style="text-align:center">
-        <span id="counting"></span>
-    </p>
-    
     <div class="goback" style="height: 40px;">
             <a href="javascript:void(0);" onclick="prep();" class="discover btn-boxy" id="start_button" style="
     width: 150px;
@@ -224,62 +217,18 @@
     
        </div>
     
-<div id="welcome" style="display: none;">
-    <p>
-        <span>I want to draw a </span>
-        <select id="class_selector">
-            <option value="bicycle">bicycle</option>
-            <option value="binoculars">binoculars</option>
-            <option value="birthday_cake">birthday cake</option>
-            <option value="book">book</option>
-            <option value="butterfly">butterfly</option>
-            <option value="calculator">calculator</option>
-            <option value="cat">cat</option>
-            <option value="chandelier">chandelier</option>
-            <option value="computer">computer</option>
-            <option value="cow">cow</option>
-            <option value="cruise_ship">cruise ship</option>
-            <option value="face" selected="">face</option>
-            <option value="flower">flower</option>
-            <option value="guitar">guitar</option>
-            <option value="mosquito">mosquito</option>
-            <option value="piano">piano</option>
-            <option value="pineapple">pineapple</option>
-            <option value="sun">sun</option>
-            <option value="truck">truck</option>
-            <option value="windmill">windmill</option>
-        </select>
-        <span> or </span>
-        <button type="button" onclick="roll();" id="random_button">Random</button>
-    </p>
-    <p>
-        <span>I want to play a </span>
-        <select id="speed_selector">
-            <option value="0.5">Easy</option>
-            <option value="1.0" selected="">Normal</option>
-            <option value="2.0">Hard</option>
-        </select>
-        <span> mode</span>
-    </p>
-    <p style="text-align:center">
-        <button type="button" onclick="prep();" id="start_button">I am ready!</button>
-    </p>
-    <p>
-        <span id="status">Loading Classifier... AI is preparing... Classifier Loaded. AI is preparing... AI is ready! </span>
-    </p>
-    <p style="text-align:center">
-        <span id="counting">Game starts in 0 seconds.</span>
-    </p>
-    <!--
-    <span id="disclaimer">Disclaimer: (i) this is an online demo of Pixelary as part of paper submission #332 in SIGGRAPH Asia 2020; (ii) the demo is for entertainment purposes only and different to the offline version we used for human study.
-    </span>
-    -->
-</div>
 <div class="grid-container">
     <div class="Title" style="display: block;">
-        <p style="text-align:center">
-            <span id="text_area"><b>Draw a face.</b></span>
-            <button type="button" onclick="reset_all();" id="restart_button">Restart</button>
+        <p style="
+    height: 60px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+">
+        <span id="status"></span>
+        <span id="counting">Game starts in 0 seconds.</span>
+    </p>
+        <p style="text-align:center;height: 60px;margin-top: 0px;margin-bottom: 0px;">
+            <span id="text_area"></span>
         </p>
     </div>
     <div class="Human" style="display: block;">
@@ -289,7 +238,7 @@
         <canvas id="pad_ai" width="500" height="500" style="border:1px solid #36a2eb;"></canvas>
     </div>
     <div class="Result" style="display: block;">
-        <canvas id="acc_chart" style="display: block;height: 300px;width: 1000px;margin-left: 120px;" width="800" height="400"></canvas>
+        <canvas id="acc_chart" width="1600" height="400" style="display: block; height: 200px; width: 800px;"></canvas>
     </div>
     <div class="Footer" style="display: block;">
         <span id="winner_area"></span>

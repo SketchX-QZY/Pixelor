@@ -105,6 +105,7 @@ async function loadModel() {
 
 function load_ai() {
     let json_file = $.getJSON(server_url + '/class/' + class_name).done(function (data) {
+        reset_all();
         ai_data = data;
         status.append('AI is ready! ');
         counting.html('Game starts in 3 seconds');
@@ -113,7 +114,6 @@ function load_ai() {
             counter++;
             counting.html('Game starts in ' + (3 - counter) + ' seconds.')
             if (counter === 3) {
-                $('#welcome').hide();
                 $('.Header').show();
                 $('.Human').show();
                 $('.AI').show();
@@ -167,14 +167,15 @@ function reset_all() {
     chart.data.datasets[1].data = [];
     chart.data.labels = [];
     chart.update();
-    $('.Header').hide();
-    $('.Human').hide();
-    $('.AI').hide();
+    // $('.Header').hide();
+    // $('.Human').hide();
+    // $('.AI').hide();
     $('.Result').hide();
     $('.Footer').hide();
     status.html('');
     counting.html('');
-    $('#welcome').show();
+    $('#Title').show();
+    // $('#welcome').show();
 }
 
 press = async function (e) {

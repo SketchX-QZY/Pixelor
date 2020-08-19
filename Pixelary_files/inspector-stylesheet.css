@@ -27,6 +27,8 @@ p {
 			width: 126px;
 			margin: 0 auto 15px auto;
 		}
+		#start_button:hover span{
+    		width:25px}
 		#start_button:hover {
 			position: relative;
 		    width: 147px;

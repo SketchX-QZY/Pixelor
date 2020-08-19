@@ -122,6 +122,8 @@ function load_ai() {
                 clearInterval(interval);
                 class_name = $('#class_selector').val();
                 $('#text_area').html('<b>Draw a ' + class_name + '.</b>');
+                status.html('');
+                counting.html('');
             }
         }, 1000);
     });

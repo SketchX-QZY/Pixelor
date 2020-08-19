@@ -120,6 +120,8 @@ function load_ai() {
                 $('.Result').show();
                 $('.Footer').show();
                 clearInterval(interval);
+                class_name = $('#class_selector').val();
+                $('#text_area').html('<b>Draw a ' + class_name + '.</b>');
             }
         }, 1000);
     });
@@ -128,8 +130,6 @@ function load_ai() {
 function prep() {
     class_name = $('#class_selector').val();
     classifier_idx = class_names_full.indexOf(class_name);
-
-    $('#text_area').html('<b>Draw a ' + class_name + '.</b>');
 
     difficulty_factor = parseFloat($('#speed_selector').val());
 

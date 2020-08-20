@@ -41,6 +41,7 @@
 .Result {
     justify-content: center;
     grid-area: Result;
+    background: rgba(255,255,255,0.8);
     display: flex;
     margin-top: 30px;
 }

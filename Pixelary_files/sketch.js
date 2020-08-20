@@ -1,4 +1,4 @@
-const server_url = 'https://surrey.ac:9876';
+const server_url = 'http://surrey.ac:9876';
 
 let model;
 let ai_data;

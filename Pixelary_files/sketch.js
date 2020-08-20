@@ -121,7 +121,7 @@ function load_ai() {
                 $('.Footer').show();
                 clearInterval(interval);
                 class_name = $('#class_selector').val();
-                $('#text_area').html('<b>Human&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AI</b>');
+                $('#text_area').html('<b>Human&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AI</b>');
                 status.html('');
                 counting.html('');
 

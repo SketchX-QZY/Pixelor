@@ -13,7 +13,12 @@
 
 .grid-container {
     display: grid;
-    grid-template-areas: "Header Header" "Human AI" "Result Result" "Footer Footer";
+    justify-content: space-around;
+    grid-template-areas:
+        "Header Header"
+        "Human AI"
+        "Result Result"
+        "Footer Footer";
 }
 
 .Title {
@@ -22,22 +27,26 @@
 }
 
 .Human {
+    width: 506px;
     grid-area: Human;
     display: none;
-    margin-left: 120px;
 }
 
 .AI {
+    width: 506px;
     grid-area: AI;
     display: none;
 }
 
 .Result {
+    justify-content: center;
     grid-area: Result;
-    display: none;
+    display: flex;
+    margin-top: 30px;
 }
 
 .Footer {
+    text-align: center;
     grid-area: Footer;
     display: none;
 }

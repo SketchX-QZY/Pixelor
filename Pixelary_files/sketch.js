@@ -124,6 +124,16 @@ function load_ai() {
                 $('#text_area').html('<b>Draw a ' + class_name + '.</b>');
                 status.html('');
                 counting.html('');
+
+                canvas.addEventListener("mousedown", press, false);
+                canvas.addEventListener("mousemove", drag, false);
+                canvas.addEventListener("mouseup", release);
+                canvas.addEventListener("mouseout", cancel, false);
+
+                canvas.addEventListener("touchstart", press, false);
+                canvas.addEventListener("touchmove", drag, false);
+                canvas.addEventListener("touchend", release, false);
+                canvas.addEventListener("touchcancel", cancel, false);
             }
         }, 1000);
     });
@@ -269,16 +279,6 @@ function redraw(context, clickX, clickY, clickDrag, num, is_human) {
         }
     }
 }
-
-canvas.addEventListener("mousedown", press, false);
-canvas.addEventListener("mousemove", drag, false);
-canvas.addEventListener("mouseup", release);
-canvas.addEventListener("mouseout", cancel, false);
-
-canvas.addEventListener("touchstart", press, false);
-canvas.addEventListener("touchmove", drag, false);
-canvas.addEventListener("touchend", release, false);
-canvas.addEventListener("touchcancel", cancel, false);
 
 async function classify() {
 

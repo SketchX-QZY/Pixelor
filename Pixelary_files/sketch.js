@@ -121,7 +121,7 @@ function load_ai() {
                 $('.Footer').show();
                 clearInterval(interval);
                 class_name = $('#class_selector').val();
-                $('#text_area').html('<b>Draw a ' + class_name + '.</b>');
+                $('#text_area').html('<b>Human            vs            AI</b>');
                 status.html('');
                 counting.html('');
 

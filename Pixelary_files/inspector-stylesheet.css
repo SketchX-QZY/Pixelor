@@ -8,27 +8,28 @@
 }
 
 p {
-    color: white;
+    color: black;
+    text-align: left;
     font-family: sans-serif;
     font-size: x-large;
+    font-weight: 600;
 }
 
 .goback{
-			left: 0;
-			right: 0;
-			bottom:0;
 			margin: auto;
 			z-index: 999;
 			color: #fff;
 			width: auto;
 			height: auto;
 			font-size: 40px;
-			text-align: center;
+			text-align: left;
+			margin-left: 10px;
 			cursor: pointer;
 		}
 		#start_button {
-			width: 126px;
+			width: 150px;
 			margin: 0 auto 15px auto;
+			background: #666666;
 		}
 		#start_button:hover span{
     		width:25px}
@@ -103,15 +104,15 @@ p {
 
 select#class_selector {
 	margin: 10px;
-  width: 130px;
-  padding: 5px 5px 5px 5px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  height: 34px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: url(https://stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
+	width: 150px;
+	padding: 5px 5px 5px 5px;
+	font-size: 16px;
+	border: 5px solid black;
+	height: 34px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: url(https://stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
 }
 
 select::-ms-expand { 
@@ -128,12 +129,13 @@ select::-ms-expand {
 
 select#speed_selector {
 	margin: 10px;
-  width: 70px;
-  padding: 5px 5px 5px 5px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  height: 34px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+	width: 150px;
+	padding: 5px 5px 5px 5px;
+	font-size: 16px;
+	border: 5px solid black;
+	height: 34px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: url(https://stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
 }

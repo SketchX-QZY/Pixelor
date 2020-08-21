@@ -12,6 +12,10 @@
 }
 
 .grid-container {
+    position: absolute;
+    left: 225;
+    top: 110;
+    right: 0;
     display: grid;
     justify-content: space-around;
     grid-template-areas:
@@ -29,13 +33,15 @@
 .Human {
     width: 506px;
     grid-area: Human;
-    display: none;
+    background: url(assets/img/human.png) no-repeat 0 0;
+    background-size:cover;
 }
 
 .AI {
     width: 506px;
     grid-area: AI;
-    display: none;
+    background: url(assets/img/ai.png) no-repeat 0 0;
+    background-size:cover;
 }
 
 .Result {
@@ -52,10 +58,14 @@
     display: none;
 }
 
-
-
-body {
-    background: url(assets/img/background.jpg) no-repeat 0 10%;
-    background-attachment: fixed;
+.left-slider {
+    width: 225px;
+    height: 100%;
+    padding: 10px;
+    background: url(assets/img/slider.png) no-repeat 0 0;
     background-size: cover;
+}
+
+span.title-span {
+    margin-left: 10px;
 }

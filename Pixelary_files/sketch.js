@@ -18,6 +18,7 @@ let full_length = 0;
 let full_length_human = 0;
 
 let paint;
+let prepare = false;
 
 let canvas = document.getElementById("pad_human");
 let canvas_ai = document.getElementById("pad_ai");
@@ -107,7 +108,7 @@ function load_ai() {
     let json_file = $.getJSON(server_url + '/class/' + class_name).done(function (data) {
         reset_all();
         ai_data = data;
-        status.append('AI is ready! ');
+        status.html('AI is ready! ');
         counting.html('Game starts in 3 seconds');
         let counter = 0;
         let interval = setInterval(function () {
@@ -120,8 +121,7 @@ function load_ai() {
                 $('.Result').show();
                 $('.Footer').show();
                 clearInterval(interval);
-                class_name = $('#class_selector').val();
-                $('#text_area').html('<b>Human&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AI</b>');
+                
                 status.html('');
                 counting.html('');
 
@@ -134,33 +134,39 @@ function load_ai() {
                 canvas.addEventListener("touchmove", drag, false);
                 canvas.addEventListener("touchend", release, false);
                 canvas.addEventListener("touchcancel", cancel, false);
+
+                prepare = false;
             }
         }, 1000);
     });
 }
 
 function prep() {
+    if (prepare) {
+        return;
+    }
+    prepare = true;
     class_name = $('#class_selector').val();
     classifier_idx = class_names_full.indexOf(class_name);
 
     difficulty_factor = parseFloat($('#speed_selector').val());
 
     if (model == null) {
-        status.append('Loading Classifier... ');
+        counting.html('Loading Classifier... ');
 
         model = loadModel();
 
         model.then(function () {
             warm_up = classify();
-            status.append('Classifier Loaded. ');
+            counting.html('Classifier Loaded. ');
             load_ai();
         });
     } else {
-        status.append('Classifier Loaded. ');
+        counting.html('Classifier Loaded. ');
         load_ai();
     }
 
-    status.append('AI is preparing... ')
+    status.html('AI is preparing... ')
 }
 
 function reset_all() {

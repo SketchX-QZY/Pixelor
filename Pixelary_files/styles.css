@@ -13,8 +13,8 @@
 
 .grid-container {
     position: absolute;
-    left: 225;
-    top: 110;
+    left: 245;
+    top: 300;
     right: 0;
     display: grid;
     justify-content: space-around;
@@ -68,4 +68,20 @@
 
 span.title-span {
     margin-left: 10px;
+}
+
+.photo-container {
+    position: absolute;
+    left: 245;
+    top: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    grid-gap: 0px;
+    padding: 0px;
+}
+
+.photo {
+    border: 1px solid black;
+    padding-bottom: 100%;
 }

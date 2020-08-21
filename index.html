@@ -180,7 +180,7 @@
    <p style="
     margin-top: 0px;
     margin-bottom: 10px;
-"> <select id="class_selector"> <option value="bicycle">bicycle</option> <option value="binoculars">binoculars</option> <option value="birthday_cake">birthday cake</option> <option value="book">book</option> <option value="butterfly">butterfly</option> <option value="calculator">calculator</option> <option value="cat">cat</option> <option value="chandelier">chandelier</option> <option value="computer">computer</option> <option value="cow">cow</option> <option value="cruise_ship">cruise ship</option> <option value="face" selected="">face</option> <option value="flower">flower</option> <option value="guitar">guitar</option> <option value="mosquito">mosquito</option> <option value="piano">piano</option> <option value="pineapple">pineapple</option> <option value="sun">sun</option> <option value="truck">truck</option> <option value="windmill">windmill</option> </select> </p> 
+"> <select id="class_selector" onchange="selectChange();"> <option value="bicycle">bicycle</option> <option value="binoculars">binoculars</option> <option value="birthday_cake">birthday cake</option> <option value="book">book</option> <option value="butterfly">butterfly</option> <option value="calculator">calculator</option> <option value="cat">cat</option> <option value="chandelier">chandelier</option> <option value="computer">computer</option> <option value="cow">cow</option> <option value="cruise_ship">cruise ship</option> <option value="face" selected="">face</option> <option value="flower">flower</option> <option value="guitar">guitar</option> <option value="mosquito">mosquito</option> <option value="piano">piano</option> <option value="pineapple">pineapple</option> <option value="sun">sun</option> <option value="truck">truck</option> <option value="windmill">windmill</option> </select> </p> 
    <p style="
     margin-top: 0px;
     margin-bottom: 0px;
@@ -225,6 +225,96 @@
 " class="navbar-brand" href="#"><img class="navbar-image" src="./Pixelary_files/assets/img/SketchX.png" style="margin-top: 200px;width: 225px;" /></a> 
    <a style="" class="navbar-brand" href="#"><img class="navbar-image" src="./Pixelary_files/assets/img/Surrey.png" style="width: 225px;" /></a> 
   </div> 
+
+<div class="mask" id="mask" style="
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(255,99,132,0.2);
+"></div>
+
+<div class="photo-container">
+    <div class="photo" id="bicycle" style="
+    background: url(./Pixelary_files/assets/img/bicycle.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="binoculars"  style="
+    background: url(./Pixelary_files/assets/img/binoculars.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="birthday_cake"  style="
+    background: url(./Pixelary_files/assets/img/birthday_cake.png) no-repeat 0 0;
+    background-size:cover;
+"></div>  
+    <div class="photo" id="book"  style="
+    background: url(./Pixelary_files/assets/img/book.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="butterfly"  style="
+    background: url(./Pixelary_files/assets/img/butterfly.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="calculator"  style="
+    background: url(./Pixelary_files/assets/img/calculator.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="cat"  style="
+    background: url(./Pixelary_files/assets/img/cat.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="chandelier"  style="
+    background: url(./Pixelary_files/assets/img/chandelier.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="computer"  style="
+    background: url(./Pixelary_files/assets/img/computer.png) no-repeat 0 0;
+    background-size:cover;
+"></div>  
+    <div class="photo" id="cow"  style="
+    background: url(./Pixelary_files/assets/img/cow.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="cruise_ship"  style="
+    background: url(./Pixelary_files/assets/img/cruise_ship.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="face"  style="
+    background: url(./Pixelary_files/assets/img/face.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="flower"  style="
+    background: url(./Pixelary_files/assets/img/flower.png) no-repeat 0 0;
+    background-size:cover;
+"></div>  
+    <div class="photo" id="guitar"  style="
+    background: url(./Pixelary_files/assets/img/guitar.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="mosquito"  style="
+    background: url(./Pixelary_files/assets/img/mosquito.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="piano"  style="
+    background: url(./Pixelary_files/assets/img/piano.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="pineapple"  style="
+    background: url(./Pixelary_files/assets/img/pineapple.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="sun"  style="
+    background: url(./Pixelary_files/assets/img/sun.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="truck"  style="
+    background: url(./Pixelary_files/assets/img/truck.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+    <div class="photo" id="windmill"  style="
+    background: url(./Pixelary_files/assets/img/windmill.png) no-repeat 0 0;
+    background-size:cover;
+"></div>
+  </div>
+  
   <div class="grid-container" style="
     padding-left: 100px;
     padding-right: 100px;

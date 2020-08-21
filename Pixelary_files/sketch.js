@@ -141,6 +141,17 @@ function load_ai() {
     });
 }
 
+function selectChange() {
+    class_name = $('#class_selector').val();
+    var odiv = document.getElementById(class_name);
+    var mask = document.getElementById('mask');
+
+    mask.style.left = odiv.getBoundingClientRect().left;
+    mask.style.width = odiv.getBoundingClientRect().right-odiv.getBoundingClientRect().left;
+    mask.style.top = odiv.getBoundingClientRect().top;
+    mask.style.height = odiv.getBoundingClientRect().bottom-odiv.getBoundingClientRect().top;
+}
+
 function prep() {
     if (prepare) {
         return;
@@ -336,6 +347,8 @@ async function classify() {
         $('#winner_area').html(winner + ' has won. But you can keep drawing. ');
     }
 }
+
+window.onload = selectChange();
 
 var ctx = document.getElementById("acc_chart").getContext('2d');
 var chart = new Chart(ctx, {

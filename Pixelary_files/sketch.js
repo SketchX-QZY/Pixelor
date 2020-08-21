@@ -1,4 +1,4 @@
-const server_url = 'https://surrey.ac:9876';
+const server_url = 'http://surrey.ac:9876';
 
 let model;
 let ai_data;
@@ -19,6 +19,7 @@ let full_length_human = 0;
 
 let paint;
 let prepare = false;
+let colorfulDiv;
 
 let canvas = document.getElementById("pad_human");
 let canvas_ai = document.getElementById("pad_ai");
@@ -141,15 +142,35 @@ function load_ai() {
     });
 }
 
+function onCreate() {
+    var mask = document.getElementById('windmill');
+    var pad_container = document.getElementById('pad-container');
+    pad_container.style.top = mask.getBoundingClientRect().bottom + window.pageYOffset + 30;
+
+    // class_name = $('#class_selector').val();
+    // var odiv = document.getElementById(class_name);
+    // var mask = document.getElementById('mask');
+
+    // mask.style.left = odiv.getBoundingClientRect().left + window.pageXOffset;
+    // mask.style.width = odiv.getBoundingClientRect().width;
+    // mask.style.top = odiv.getBoundingClientRect().top + window.pageYOffset;
+    // mask.style.height = odiv.getBoundingClientRect().height;
+}
+
 function selectChange() {
     class_name = $('#class_selector').val();
+    if (colorfulDiv != null) {
+        colorfulDiv.style.backgroundColor = "#FFFFFF";
+    }
     var odiv = document.getElementById(class_name);
-    var mask = document.getElementById('mask');
+    odiv.style.backgroundColor = "#CCCCCC";
+    colorfulDiv = odiv;
+}
 
-    mask.style.left = odiv.getBoundingClientRect().left;
-    mask.style.width = odiv.getBoundingClientRect().right-odiv.getBoundingClientRect().left;
-    mask.style.top = odiv.getBoundingClientRect().top;
-    mask.style.height = odiv.getBoundingClientRect().bottom-odiv.getBoundingClientRect().top;
+function sketchClick(event) {
+    var id = event.currentTarget.id;
+    document.getElementById('class_selector').value = id;
+    selectChange();
 }
 
 function prep() {
@@ -187,7 +208,6 @@ function reset_all() {
     full_length = 0;
     full_length_human = 0;
     winner = null;
-    $('#winner_area').html('');
     $('#text_area').html('');
     run_classifier_times = 0;
     context.clearRect(0, 0, 500, 500);
@@ -344,11 +364,14 @@ async function classify() {
     chart.update();
 
     if (winner != null) {
-        $('#winner_area').html(winner + ' has won. But you can keep drawing. ');
+        alert(winner + ' has won.\nBut you can keep drawing.');
     }
 }
 
-window.onload = selectChange();
+window.onload=function(){
+    onCreate();
+    selectChange();
+}
 
 var ctx = document.getElementById("acc_chart").getContext('2d');
 var chart = new Chart(ctx, {

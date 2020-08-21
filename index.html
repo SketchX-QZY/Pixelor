@@ -204,7 +204,7 @@
     margin-top: 40px;
     margin-bottom: 5px;
     font-size: medium;
-    font-weight: 300;
+    font-weight: 600;
     font-family: monospace;
 "> <span id="status" style="
 "></span> </p> 
@@ -216,7 +216,7 @@
     margin-bottom: 5px;
     margin-left: 10px;
     font-size: medium;
-    font-weight: 300;
+    font-weight: 600;
     font-family: monospace;
 "> <span id="counting" style="
 "></span> </p> 
@@ -233,91 +233,92 @@
 "></div>
 
 <div class="photo-container">
-    <div class="photo" id="bicycle" style="
+    <div class="photo" id="bicycle" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/bicycle.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="binoculars"  style="
+    <div class="photo" id="binoculars" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/binoculars.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="birthday_cake"  style="
+    <div class="photo" id="birthday_cake" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/birthday_cake.png) no-repeat 0 0;
     background-size:cover;
 "></div>  
-    <div class="photo" id="book"  style="
+    <div class="photo" id="book" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/book.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="butterfly"  style="
+    <div class="photo" id="butterfly" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/butterfly.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="calculator"  style="
+    <div class="photo" id="calculator" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/calculator.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="cat"  style="
+    <div class="photo" id="cat" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/cat.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="chandelier"  style="
+    <div class="photo" id="chandelier" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/chandelier.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="computer"  style="
+    <div class="photo" id="computer" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/computer.png) no-repeat 0 0;
     background-size:cover;
 "></div>  
-    <div class="photo" id="cow"  style="
+    <div class="photo" id="cow" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/cow.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="cruise_ship"  style="
+    <div class="photo" id="cruise_ship" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/cruise_ship.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="face"  style="
+    <div class="photo" id="face" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/face.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="flower"  style="
+    <div class="photo" id="flower" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/flower.png) no-repeat 0 0;
     background-size:cover;
 "></div>  
-    <div class="photo" id="guitar"  style="
+    <div class="photo" id="guitar" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/guitar.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="mosquito"  style="
+    <div class="photo" id="mosquito" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/mosquito.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="piano"  style="
+    <div class="photo" id="piano" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/piano.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="pineapple"  style="
+    <div class="photo" id="pineapple" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/pineapple.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="sun"  style="
+    <div class="photo" id="sun" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/sun.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="truck"  style="
+    <div class="photo" id="truck" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/truck.png) no-repeat 0 0;
     background-size:cover;
 "></div>
-    <div class="photo" id="windmill"  style="
+    <div class="photo" id="windmill" onclick="sketchClick(event)" style="
     background: url(./Pixelary_files/assets/img/windmill.png) no-repeat 0 0;
     background-size:cover;
 "></div>
   </div>
   
-  <div class="grid-container" style="
+  <div class="grid-container" id="pad-container" style="
     padding-left: 100px;
     padding-right: 100px;
+    padding-bottom: 20px;
 "> 
    <div class="Human" style="display: block;"> 
     <canvas id="pad_human" width="500" height="500" style="background-color: rgba(255,99,132,0.2);"></canvas> 
@@ -327,9 +328,6 @@
    </div> 
    <div class="Result" style=""> 
     <canvas id="acc_chart" width="800" height="200" style="display: block; height: 200px; width: 800px;"></canvas> 
-   </div> 
-   <div class="Footer" style="display: block;"> 
-    <span id="winner_area"></span> 
    </div> 
    <script src="./Pixelary_files/sketch.js"></script> 
   </div> 

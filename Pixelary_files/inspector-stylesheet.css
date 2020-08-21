@@ -10,7 +10,7 @@
 p {
     color: black;
     text-align: left;
-    font-family: sans-serif;
+    font-family: Calibri, sans-serif;
     font-size: x-large;
     font-weight: 600;
 }
@@ -29,14 +29,14 @@ p {
 		#start_button {
 			width: 150px;
 			margin: 0 auto 15px auto;
-			background: #666666;
+			background: #555555;
 		}
 		#start_button:hover span{
     		width:25px}
 		#start_button:hover {
 			position: relative;
 		    width: 147px;
-		    background: #FFF;
+		    background: #FFFFFF;
 		    color: #181819;
 		    padding-right: 27px;
 		}
@@ -52,7 +52,7 @@ p {
 			background: none;
 			text-align: center;
 			line-height: 43px;
-			border: solid 2px #fff;
+			border: solid 2px #FFFFFF;
 			font-family: "franklin-gothic-ext-comp-urw", sans-serif;
 			text-transform: uppercase;
 			font-weight: 700;
@@ -108,7 +108,7 @@ select#class_selector {
 	padding: 5px 5px 5px 5px;
 	font-size: 16px;
 	border: 5px solid black;
-	height: 34px;
+	height: 40px;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -133,7 +133,7 @@ select#speed_selector {
 	padding: 5px 5px 5px 5px;
 	font-size: 16px;
 	border: 5px solid black;
-	height: 34px;
+	height: 40px;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;

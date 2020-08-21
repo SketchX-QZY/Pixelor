@@ -23,6 +23,7 @@ let colorfulDiv;
 
 let canvas = document.getElementById("pad_human");
 let canvas_ai = document.getElementById("pad_ai");
+let score = document.getElementById('score');
 
 let context = canvas.getContext("2d");
 let context_ai = canvas_ai.getContext("2d");
@@ -364,13 +365,17 @@ async function classify() {
     chart.update();
 
     if (winner != null) {
-        alert(winner + ' has won.\nBut you can keep drawing.');
+        score.style.visibility = "visible";
+        $('#middle').html(winner + ' has won!<br />But you can keep drawing.');
     }
 }
 
-window.onload=function(){
+window.onload = function(){
     onCreate();
     selectChange();
+    document.onmousedown = function(event){
+        score.style.visibility = "hidden";
+    }
 }
 
 var ctx = document.getElementById("acc_chart").getContext('2d');

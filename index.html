@@ -222,15 +222,32 @@
 "></span> </p> 
    </div> 
    <a style="
-" class="navbar-brand" href="#"><img class="navbar-image" src="./Pixelary_files/assets/img/SketchX.png" style="margin-top: 200px;width: 225px;" /></a> 
-   <a style="" class="navbar-brand" href="#"><img class="navbar-image" src="./Pixelary_files/assets/img/Surrey.png" style="width: 225px;" /></a> 
+" class="navbar-brand" href="#"><img class="navbar-image" src="./Pixelary_files/assets/img/SketchX.png" style="margin-top: 200px;width: 245px;" /></a> 
+   <a style="" class="navbar-brand" href="#"><img class="navbar-image" src="./Pixelary_files/assets/img/Surrey.png" style="width: 245px;" /></a> 
   </div> 
 
-<div class="mask" id="mask" style="
+<div class="score" id="score" style="
     position: absolute;
     z-index: 1;
-    background-color: rgba(255,99,132,0.2);
-"></div>
+    visibility: hidden;
+    background-color: rgba(255,211,187,0.8);
+    left: 50%;
+    text-align: center;
+    display: table;
+    top: 30;
+    width: 500px;
+    height: 100px;
+    margin-left: -250px;
+    font-size: 18px;
+    font-family: Calibri, sans-serif;
+">
+        <div id="middle" style="
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+">
+        </div>
+</div>
 
 <div class="photo-container">
     <div class="photo" id="bicycle" onclick="sketchClick(event)" style="
@@ -316,8 +333,8 @@
   </div>
   
   <div class="grid-container" id="pad-container" style="
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
     padding-bottom: 20px;
 "> 
    <div class="Human" style="display: block;"> 

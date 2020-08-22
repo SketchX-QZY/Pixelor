@@ -113,7 +113,9 @@ function load_ai() {
         ai_data = data;
         status.html('AI is ready! ');
         counting.html('Game starts in 3 seconds');
-        colorfulDiv.style.backgroundColor = "#FCBD4D";
+        if (colorfulDiv != null) {
+            colorfulDiv.style.backgroundColor = "#FCBD4D";
+        }
         showTip();
         let counter = 0;
         let interval = setInterval(function () {

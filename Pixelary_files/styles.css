@@ -18,7 +18,7 @@
     right: 0;
     padding-top: 30px;
     display: grid;
-    background: rgb(253,190,63);
+    /* background: rgb(253,190,63); */
     justify-content: space-evenly;
     grid-template-areas:
         "Header Header"
@@ -36,6 +36,7 @@
     grid-area: Human;
     background: url(assets/img/human.png) no-repeat 0 0;
     background-size:cover;
+    border: 8px solid #fd6585;
 }
 
 .AI {
@@ -43,6 +44,7 @@
     grid-area: AI;
     background: url(assets/img/ai.png) no-repeat 0 0;
     background-size: cover;
+    border: 8px solid #3da3e8;
 }
 
 .Result {

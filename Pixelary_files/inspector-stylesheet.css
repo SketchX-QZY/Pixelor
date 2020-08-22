@@ -27,7 +27,7 @@ p {
 			cursor: pointer;
 		}
 		#start_button {
-			width: 160px;
+			width: 200px;
 			margin: 0 auto 0 auto;
 			background: #000000;
 		}
@@ -35,7 +35,7 @@ p {
     		width:25px}
 		#start_button:hover {
 			position: relative;
-		    width: 147px;
+		    width: 200px;
 		    background: #FFFFFF;
 		    color: #181819;
 		    padding-right: 27px;
@@ -104,7 +104,7 @@ p {
 
 select#class_selector {
 	margin: 10px;
-	width: 160px;
+	width: 200px;
 	padding: 5px 5px 5px 5px;
 	font-size: 16px;
 	border: 5px solid black;
@@ -112,7 +112,7 @@ select#class_selector {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: url(https://stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
+	background: url(https://stackoverflow.com/favicon.ico) 96% / 12% no-repeat #eee;
 }
 
 select::-ms-expand { 
@@ -129,7 +129,7 @@ select::-ms-expand {
 
 select#speed_selector {
 	margin: 10px;
-	width: 160px;
+	width: 200px;
 	padding: 5px 5px 5px 5px;
 	font-size: 16px;
 	border: 5px solid black;
@@ -137,5 +137,5 @@ select#speed_selector {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: url(https://stackoverflow.com/favicon.ico) 96% / 15% no-repeat #eee;
+	background: url(https://stackoverflow.com/favicon.ico) 96% / 12% no-repeat #eee;
 }

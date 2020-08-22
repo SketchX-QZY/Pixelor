@@ -112,6 +112,8 @@ function load_ai() {
         ai_data = data;
         status.html('AI is ready! ');
         counting.html('Game starts in 3 seconds');
+        colorfulDiv.style.backgroundColor = "#FF638433";
+        showTip();
         let counter = 0;
         let interval = setInterval(function () {
             counter++;
@@ -122,6 +124,8 @@ function load_ai() {
                 $('.AI').show();
                 $('.Result').show();
                 $('.Footer').show();
+                var tip = document.getElementById('tip');
+                tip.style.visibility = "hidden";
                 clearInterval(interval);
                 
                 status.html('');
@@ -158,6 +162,14 @@ function onCreate() {
     // mask.style.height = odiv.getBoundingClientRect().height;
 }
 
+function showTip() {
+    var tip = document.getElementById('tip');
+    var human = document.getElementById('Human');
+    tip.style.left = human.getBoundingClientRect().left + window.pageXOffset;
+    tip.style.top = human.getBoundingClientRect().top + window.pageYOffset;
+    tip.style.visibility = "visible";
+}
+
 function selectChange() {
     class_name = $('#class_selector').val();
     if (colorfulDiv != null) {
@@ -169,9 +181,9 @@ function selectChange() {
 }
 
 function sketchClick(event) {
-    var id = event.currentTarget.id;
-    document.getElementById('class_selector').value = id;
-    selectChange();
+    // var id = event.currentTarget.id;
+    // document.getElementById('class_selector').value = id;
+    // selectChange();
 }
 
 function prep() {
@@ -185,17 +197,17 @@ function prep() {
     difficulty_factor = parseFloat($('#speed_selector').val());
 
     if (model == null) {
-        counting.html('Loading Classifier... ');
+        // counting.html('Loading Classifier... ');
 
         model = loadModel();
 
         model.then(function () {
             warm_up = classify();
-            counting.html('Classifier Loaded. ');
+            // counting.html('Classifier Loaded. ');
             load_ai();
         });
     } else {
-        counting.html('Classifier Loaded. ');
+        // counting.html('Classifier Loaded. ');
         load_ai();
     }
 

@@ -112,7 +112,7 @@ select#class_selector {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: url(https://stackoverflow.com/favicon.ico) 96% / 12% no-repeat #FCBD4D;
+	background: url(https://stackoverflow.com/favicon.ico) 96% / 12% no-repeat #FFFFFF;
 }
 
 select::-ms-expand { 
@@ -137,5 +137,5 @@ select#speed_selector {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: url(https://stackoverflow.com/favicon.ico) 96% / 12% no-repeat #FCBD4D;
+	background: url(https://stackoverflow.com/favicon.ico) 96% / 12% no-repeat #FFFFFF;
 }

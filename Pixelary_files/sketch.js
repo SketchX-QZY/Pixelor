@@ -16,6 +16,7 @@ let clickDrag = [];
 
 let full_length = 0;
 let full_length_human = 0;
+let canvasXOffset = 0;
 
 let paint;
 let prepare = false;
@@ -112,7 +113,7 @@ function load_ai() {
         ai_data = data;
         status.html('AI is ready! ');
         counting.html('Game starts in 3 seconds');
-        colorfulDiv.style.backgroundColor = "#FF638433";
+        colorfulDiv.style.backgroundColor = "#FCBD4D";
         showTip();
         let counter = 0;
         let interval = setInterval(function () {
@@ -155,6 +156,8 @@ function onCreate() {
     pad_container.style.top = mask.getBoundingClientRect().bottom + window.pageYOffset + 1;
     result_container.style.top = pad_container.getBoundingClientRect().bottom + window.pageYOffset + 20;
 
+    canvasXOffset = mask.getBoundingClientRect().bottom + window.pageYOffset + 1;
+
     // class_name = $('#class_selector').val();
     // var odiv = document.getElementById(class_name);
     // var mask = document.getElementById('mask');
@@ -179,7 +182,7 @@ function selectChange() {
         colorfulDiv.style.backgroundColor = "#FFFFFF";
     }
     var odiv = document.getElementById(class_name);
-    odiv.style.backgroundColor = "#FCBD4D";
+    odiv.style.backgroundColor = "#CCCCCC";
     colorfulDiv = odiv;
 }
 
@@ -245,8 +248,8 @@ function reset_all() {
 
 press = async function (e) {
     paint = true;
-    var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft;
-    var mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
+    var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft - 285;
+    var mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop - canvasXOffset;
     addClick(mouseX, mouseY, false);
     redraw(context, clickX, clickY, clickDrag, clickX.length, true);
     for (var i = 0; i < ai_data['dist'].length; i++) {
@@ -268,8 +271,8 @@ press = async function (e) {
 
 drag = async function (e) {
     if (paint) {
-        var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft;
-        var mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop;
+        var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft - 285;
+        var mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop - canvasXOffset;
         addClick(mouseX, mouseY, true);
         redraw(context, clickX, clickY, clickDrag, clickX.length, true);
         for (var i = 0; i < ai_data['dist'].length; i++) {

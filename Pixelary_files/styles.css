@@ -16,12 +16,13 @@
     left: 285;
     top: 300;
     right: 0;
+    padding-top: 30px;
     display: grid;
+    background: rgb(253,190,63);
     justify-content: space-evenly;
     grid-template-areas:
         "Header Header"
         "Human AI"
-        "Result Result"
         "Footer Footer";
 }
 
@@ -31,25 +32,27 @@
 }
 
 .Human {
-    width: 506px;
+    width: 500px;
     grid-area: Human;
     background: url(assets/img/human.png) no-repeat 0 0;
     background-size:cover;
 }
 
 .AI {
-    width: 506px;
+    width: 500px;
     grid-area: AI;
     background: url(assets/img/ai.png) no-repeat 0 0;
-    background-size:cover;
+    background-size: cover;
 }
 
 .Result {
+    position: absolute;
+    left: 285;
+    right: 0;
+    height: 200px;
     justify-content: center;
     grid-area: Result;
     display: flex;
-    margin-top: 30px;
-    background: rgba(255,255,255,0.8);
 }
 
 .Footer {
@@ -64,6 +67,7 @@
     padding: 30px;
     background: url(assets/img/slider.png) no-repeat 0 0;
     background-size: cover;
+    background-color: black;
 }
 
 span.title-span {
@@ -76,9 +80,10 @@ span.title-span {
     top: 0;
     right: 0;
     display: grid;
+    background-color: black;
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-    grid-gap: 0px;
-    padding: 0px;
+    grid-gap: 0;
+    padding: 1px;
 }
 
 .photo {

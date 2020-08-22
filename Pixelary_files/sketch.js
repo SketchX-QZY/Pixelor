@@ -150,7 +150,10 @@ function load_ai() {
 function onCreate() {
     var mask = document.getElementById('windmill');
     var pad_container = document.getElementById('pad-container');
-    pad_container.style.top = mask.getBoundingClientRect().bottom + window.pageYOffset + 30;
+    var result_container = document.getElementById('Result');
+
+    pad_container.style.top = mask.getBoundingClientRect().bottom + window.pageYOffset + 1;
+    result_container.style.top = pad_container.getBoundingClientRect().bottom + window.pageYOffset + 20;
 
     // class_name = $('#class_selector').val();
     // var odiv = document.getElementById(class_name);
@@ -171,12 +174,12 @@ function showTip() {
 }
 
 function selectChange() {
-    class_name = $('#class_selector').val();
+    class_name = $('#class_selector').val().toLowerCase();
     if (colorfulDiv != null) {
         colorfulDiv.style.backgroundColor = "#FFFFFF";
     }
     var odiv = document.getElementById(class_name);
-    odiv.style.backgroundColor = "#CCCCCC";
+    odiv.style.backgroundColor = "#FCBD4D";
     colorfulDiv = odiv;
 }
 
@@ -191,7 +194,7 @@ function prep() {
         return;
     }
     prepare = true;
-    class_name = $('#class_selector').val();
+    class_name = $('#class_selector').val().toLowerCase();
     classifier_idx = class_names_full.indexOf(class_name);
 
     difficulty_factor = parseFloat($('#speed_selector').val());

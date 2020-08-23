@@ -154,13 +154,13 @@ function load_ai() {
 }
 
 function showButtonColor() {
-    $('#start_button').html('Ready!');
+    $('#start_button').html('Ready!<span></span>');
     var btn = document.getElementById('start_button');
     btn.style.background = "#E26C22";
 }
 
 function dismissButtonColor() {
-    $('#start_button').html('Play!');
+    $('#start_button').html('Play!<span></span>');
     var btn = document.getElementById('start_button');
     btn.style.background = "";
 }
@@ -217,8 +217,6 @@ function sketchClick(event) {
     // var id = event.currentTarget.id;
     // document.getElementById('class_selector').value = id;
     // selectChange();
-
-    showButtonColor();
 }
 
 function prep() {

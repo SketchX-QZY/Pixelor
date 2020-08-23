@@ -17,6 +17,8 @@ let clickDrag = [];
 let full_length = 0;
 let full_length_human = 0;
 let canvasXOffset = 0;
+let tipShow = false;
+let canDraw = false;
 
 let paint;
 let prepare = false;
@@ -25,6 +27,7 @@ let colorfulDiv;
 let canvas = document.getElementById("pad_human");
 let canvas_ai = document.getElementById("pad_ai");
 let score = document.getElementById('score');
+let tip = document.getElementById('tip');
 
 let context = canvas.getContext("2d");
 let context_ai = canvas_ai.getContext("2d");
@@ -111,24 +114,22 @@ function load_ai() {
     let json_file = $.getJSON(server_url + '/class/' + class_name).done(function (data) {
         reset_all();
         ai_data = data;
-        status.html('AI is ready! ');
-        counting.html('Game starts in 3 seconds');
-        if (colorfulDiv != null) {
-            colorfulDiv.style.backgroundColor = "#FCBD4D";
-        }
-        showTip();
         let counter = 0;
         let interval = setInterval(function () {
             counter++;
-            counting.html('Game starts in ' + (3 - counter) + ' seconds.')
-            if (counter === 3) {
+            if (counter === 1) {
+                if (colorfulDiv != null) {
+                    colorfulDiv.style.backgroundColor = "#FCBD4D";
+                }
+                showTip();
+                showButtonColor();
+
                 $('.Header').show();
                 $('.Human').show();
                 $('.AI').show();
                 $('.Result').show();
                 $('.Footer').show();
-                var tip = document.getElementById('tip');
-                tip.style.visibility = "hidden";
+                
                 clearInterval(interval);
                 
                 status.html('');
@@ -145,9 +146,23 @@ function load_ai() {
                 canvas.addEventListener("touchcancel", cancel, false);
 
                 prepare = false;
+                tipShow = false;
+                canDraw = true;
             }
         }, 1000);
     });
+}
+
+function showButtonColor() {
+    $('#start_button').html('Ready!');
+    var btn = document.getElementById('start_button');
+    btn.style.background = "#E26C22";
+}
+
+function dismissButtonColor() {
+    $('#start_button').html('Play!');
+    var btn = document.getElementById('start_button');
+    btn.style.background = "";
 }
 
 function onCreate() {
@@ -178,7 +193,7 @@ function showTip() {
     tip.style.visibility = "visible";
 }
 
-function selectChange() {
+function selectChange(dismiss) {
     class_name = $('#class_selector').val().toLowerCase();
     if (colorfulDiv != null) {
         colorfulDiv.style.backgroundColor = "#FFFFFF";
@@ -186,12 +201,24 @@ function selectChange() {
     var odiv = document.getElementById(class_name);
     odiv.style.backgroundColor = "#CCCCCC";
     colorfulDiv = odiv;
+
+    reset_all();
+    if (dismiss) {
+        dismissButtonColor();
+    }
+}
+
+function difficultyChange() {
+    reset_all();
+    dismissButtonColor();
 }
 
 function sketchClick(event) {
     // var id = event.currentTarget.id;
     // document.getElementById('class_selector').value = id;
     // selectChange();
+
+    showButtonColor();
 }
 
 function prep() {
@@ -246,9 +273,13 @@ function reset_all() {
     counting.html('');
     $('#Title').show();
     // $('#welcome').show();
+    canDraw = false;
 }
 
 press = async function (e) {
+    if (!canDraw) {
+        return;
+    }
     paint = true;
     var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft - 285;
     var mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop - canvasXOffset;
@@ -272,6 +303,9 @@ press = async function (e) {
 };
 
 drag = async function (e) {
+    if (!canDraw) {
+        return;
+    }
     if (paint) {
         var mouseX = (e.changedTouches ? e.changedTouches[0].pageX : e.pageX) - this.offsetLeft - 285;
         var mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetTop - canvasXOffset;
@@ -366,12 +400,12 @@ async function classify() {
 
     if (winner == null) {
         if (human_rank > 0.5 && ai_rank <= 0.5) {
-            winner = 'Human';
+            winner = 'You';
         } else if (human_rank <= 0.5 && ai_rank > 0.5) {
             winner = 'AI';
         } else if (human_rank > 0.5 && ai_rank > 0.5) {
             if (human_acc > ai_acc) {
-                winner = 'Human';
+                winner = 'You';
             } else {
                 winner = 'AI';
             }
@@ -384,17 +418,20 @@ async function classify() {
     chart.data.labels.push(run_classifier_times);
     chart.update();
 
-    if (winner != null) {
+    if (winner != null && !tipShow) {
         score.style.visibility = "visible";
-        $('#middle').html(winner + ' has won!<br />But you can keep drawing.');
+        $('#middle').html(winner + ' won!');
+        dismissButtonColor();
+        tipShow = true;
     }
 }
 
 window.onload = function(){
     onCreate();
-    selectChange();
+    selectChange(false);
     document.onmousedown = function(event){
         score.style.visibility = "hidden";
+        tip.style.visibility = "hidden";
     }
 }
 

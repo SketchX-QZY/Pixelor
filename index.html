@@ -174,7 +174,7 @@
   <div class="left-slider" style="
 "> 
   <a style="
-" class="navbar-brand" href="#"><img class="navbar-image" src="assets/img/SketchX.png" style="width: 225px; padding-bottom: 30px;" /></a> 
+" class="navbar-brand" href="http://sketchx.ai/"><img class="navbar-image" src="assets/img/SketchX.png" style="width: 225px; padding-bottom: 30px;" /></a> 
    <p style="
     margin-top: 0px;
     margin-bottom: 0px;
@@ -182,7 +182,7 @@
    <p style="
     margin-top: 0px;
     margin-bottom: 10px;
-"> <select id="class_selector" onchange="selectChange();"> <option value="Bicycle">Bicycle</option> <option value="Binoculars">Binoculars</option> <option value="Birthday_cake">Birthday cake</option> <option value="Book">Book</option> <option value="Butterfly">Butterfly</option> <option value="Calculator">Calculator</option> <option value="Cat">Cat</option> <option value="Chandelier">Chandelier</option> <option value="Computer">Computer</option> <option value="Cow">Cow</option> <option value="Cruise_ship">Cruise ship</option> <option value="Face" selected="">Face</option> <option value="Flower">Flower</option> <option value="Guitar">Guitar</option> <option value="Mosquito">Mosquito</option> <option value="Piano">Piano</option> <option value="Pineapple">Pineapple</option> <option value="Sun">Sun</option> <option value="Truck">Truck</option> <option value="Windmill">Windmill</option> </select> </p> 
+"> <select id="class_selector" onchange="selectChange(true);"> <option value="Bicycle">Bicycle</option> <option value="Binoculars">Binoculars</option> <option value="Birthday_cake">Birthday cake</option> <option value="Book">Book</option> <option value="Butterfly">Butterfly</option> <option value="Calculator">Calculator</option> <option value="Cat">Cat</option> <option value="Chandelier">Chandelier</option> <option value="Computer">Computer</option> <option value="Cow">Cow</option> <option value="Cruise_ship">Cruise ship</option> <option value="Face" selected="">Face</option> <option value="Flower">Flower</option> <option value="Guitar">Guitar</option> <option value="Mosquito">Mosquito</option> <option value="Piano">Piano</option> <option value="Pineapple">Pineapple</option> <option value="Sun">Sun</option> <option value="Truck">Truck</option> <option value="Windmill">Windmill</option> </select> </p> 
    <p style="
     margin-top: 0px;
     margin-bottom: 0px;
@@ -190,7 +190,7 @@
    <p style="
     margin-top: 0px;
     margin-bottom: 25px;
-"> <select id="speed_selector"> <option value="0.5">Easy (0.5 x speed)</option> <option value="1.0" selected="">Normal (1.0 x speed)</option> <option value="2.0">Hard (2.0 x speed)</option> </select> </p> 
+"> <select id="speed_selector" onchange="difficultyChange();"> <option value="0.5">Easy (0.5 x speed)</option> <option value="1.0" selected="">Normal (1.0 x speed)</option> <option value="2.0">Hard (2.0 x speed)</option> </select> </p> 
    <div class="goback" style="height: 40px;margin-right: 0px;"> 
     <a href="javascript:void(0);" onclick="prep();" class="discover btn-boxy" id="start_button" style="
     height: 40px;
@@ -233,7 +233,7 @@
     position: absolute;
     z-index: 1;
     visibility: hidden;
-    background-color: #FCBD4D;
+    background-color: #FCBD4DCC;
     font-weight: 500;
     left: 50%;
     text-align: center;
@@ -242,7 +242,7 @@
     width: 400px;
     height: 100px;
     margin-left: -58px;
-    font-size: 18px;
+    font-size: 35px;
     font-family: Calibri, sans-serif;
 ">
         <div id="middle" style="
@@ -254,7 +254,7 @@
 </div>
 
 <div class="tip" id="tip" style="position: absolute;z-index: 1;visibility: hidden;text-align: center;line-height: 80px;width: 500px;height: 80px;font-size: 18px;font-family: Calibri, sans-serif;color: #FD6585;font-weight: 500;left: 379.34px;top: 99.8958px;">
-  Sketch within this area!       
+  Sketch in this area!       
 </div>
 
 <div class="photo-container">

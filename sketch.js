@@ -22,6 +22,7 @@ let canDraw = false;
 
 let paint;
 let prepare = false;
+let canClick = true;
 let colorfulDiv;
 
 let canvas = document.getElementById("pad_human");
@@ -157,12 +158,14 @@ function showButtonColor() {
     $('#start_button').html('Ready!<span></span>');
     var btn = document.getElementById('start_button');
     btn.style.background = "#E26C22";
+    canClick = false;
 }
 
 function dismissButtonColor() {
     $('#start_button').html('Play!<span></span>');
     var btn = document.getElementById('start_button');
     btn.style.background = "";
+    canClick = true;
 }
 
 function onCreate() {
@@ -221,6 +224,9 @@ function sketchClick(event) {
 
 function prep() {
     if (prepare) {
+        return;
+    }
+    if (!canClick) {
         return;
     }
     prepare = true;

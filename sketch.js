@@ -112,7 +112,7 @@ async function loadModel() {
 }
 
 function load_ai() {
-    let json_file = $.getJSON(server_url + '/class/' + class_name).done(function (data) {
+    let json_file = $.getJSON('./assets/class/' + class_name).done(function (data) {
         reset_all();
         ai_data = data;
         let counter = 0;

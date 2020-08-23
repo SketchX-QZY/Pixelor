@@ -222,6 +222,8 @@ function sketchClick(event) {
     // var id = event.currentTarget.id;
     // document.getElementById('class_selector').value = id;
     // selectChange();
+
+    showButtonColor();
 }
 
 function prep() {
@@ -411,6 +413,12 @@ async function classify() {
             if (human_acc > ai_acc) {
                 winner = 'You';
             } else {
+                winner = 'AI';
+            }
+        } else {
+            if (human_acc == 1) {
+                winner = 'You';
+            } else if (ai_acc == 1) {
                 winner = 'AI';
             }
         }

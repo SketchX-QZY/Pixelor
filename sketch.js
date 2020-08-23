@@ -158,6 +158,7 @@ function showButtonColor() {
     $('#start_button').html('Ready!<span></span>');
     var btn = document.getElementById('start_button');
     btn.style.background = "#E26C22";
+    btn.style.color = "#000000";
     canClick = false;
 }
 
@@ -165,6 +166,7 @@ function dismissButtonColor() {
     $('#start_button').html('Play!<span></span>');
     var btn = document.getElementById('start_button');
     btn.style.background = "";
+    btn.style.color = "";
     canClick = true;
 }
 

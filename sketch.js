@@ -222,8 +222,6 @@ function sketchClick(event) {
     // var id = event.currentTarget.id;
     // document.getElementById('class_selector').value = id;
     // selectChange();
-
-    showButtonColor();
 }
 
 function prep() {

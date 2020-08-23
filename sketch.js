@@ -271,8 +271,6 @@ function reset_all() {
     // $('.Header').hide();
     // $('.Human').hide();
     // $('.AI').hide();
-    $('.Result').hide();
-    $('.Footer').hide();
     status.html('');
     counting.html('');
     $('#Title').show();

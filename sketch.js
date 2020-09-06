@@ -6,6 +6,7 @@ let ai_data;
 let difficulty_factor = 1.0;
 let status = $('#status');
 let counting = $('#counting');
+let saveTime = 1;
 
 let line_width = 5;
 let winner = null;
@@ -13,6 +14,9 @@ let winner = null;
 let clickX = [];
 let clickY = [];
 let clickDrag = [];
+
+let colorIndex = [];
+let colorValue = [];
 
 let full_length = 0;
 let full_length_human = 0;
@@ -32,6 +36,11 @@ let tip = document.getElementById('tip');
 
 let context = canvas.getContext("2d");
 let context_ai = canvas_ai.getContext("2d");
+
+document.getElementById('palette').onchange = function(){
+    colorIndex.push(clickDrag.length);
+    colorValue.push(this.value);
+};
 
 let run_classifier_times = 0;
 let run_classifier_length = 50;
@@ -218,10 +227,36 @@ function difficultyChange() {
     dismissButtonColor();
 }
 
+function exportPng() {
+    var url = canvas.toDataURL("image/png");
+    var oA = document.createElement("a");
+    oA.download = 'sketch' + saveTime; // 设置下载的文件名，默认是'下载'
+    oA.href = url;
+    document.body.appendChild(oA);
+    oA.click();
+    oA.remove();
+    saveTime++;
+}
+
 function sketchClick(event) {
     // var id = event.currentTarget.id;
     // document.getElementById('class_selector').value = id;
     // selectChange();
+
+    // canvas.addEventListener("mousedown", press, false);
+    // canvas.addEventListener("mousemove", drag, false);
+    // canvas.addEventListener("mouseup", release);
+    // canvas.addEventListener("mouseout", cancel, false);
+
+    // canvas.addEventListener("touchstart", press, false);
+    // canvas.addEventListener("touchmove", drag, false);
+    // canvas.addEventListener("touchend", release, false);
+    // canvas.addEventListener("touchcancel", cancel, false);
+    // colorIndex.push(0);
+    // colorValue.push("#000000");
+
+    // canDraw = true;
+    
 }
 
 function prep() {
@@ -259,8 +294,14 @@ function reset_all() {
     clickX = [];
     clickY = [];
     clickDrag = [];
+    colorIndex = [];
+    colorValue = [];
+    colorIndex.push(0);
+    colorValue.push("#000000");
+    document.getElementById("palette").value = "#000000";
     full_length = 0;
     full_length_human = 0;
+    saveTime = 1;
     winner = null;
     $('#text_area').html('');
     run_classifier_times = 0;
@@ -350,11 +391,21 @@ function addClick(x, y, dragging) {
 function redraw(context, clickX, clickY, clickDrag, num, is_human) {
     context.clearRect(0, 0, 500, 500);
 
-    context.strokeStyle = "#000000";
     context.lineJoin = "round";
     context.lineWidth = line_width;
 
     for (var i = 0; i < num; i++) {
+        if (colorIndex.length > 1 && is_human) {
+            for (var j = 0; j < colorIndex.length; j++) {
+                if (i >= colorIndex[j]) {
+                    context.strokeStyle = colorValue[j];
+                }
+            }
+        } else {
+            context.strokeStyle = "#000000";
+        }
+        
+
         context.beginPath();
         if (clickDrag[i] && i) {
             x1 = clickX[i - 1];

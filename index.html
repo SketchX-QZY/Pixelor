@@ -204,6 +204,27 @@
     </div>
     <input class="save" id="save" type="button" title="Export" onclick="exportPng()"></input>  
    </div>
+   <div class="line-container" id="line-container" style="
+    width: 200px; 
+    margin-left: 10px;
+    margin-top: 10px;
+    display: none;
+">
+    <span style="
+    color: white;
+    font-size: small;
+">Line Width</span>
+    <span id="line_value" style="
+    float: right;
+    color: white;
+    font-size: small;
+    background: #000000;
+    border-radius: 5px;
+    width: 40px;
+    text-align: center;
+">5px</span>
+    <input id="range" type="range" min="1" max="30" value="5" oninput="changeRange()" />
+   </div>
    <div class="Title" style="display: block;"> 
     <p style="
     text-align: left;

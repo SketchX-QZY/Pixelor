@@ -8,7 +8,6 @@ let status = $('#status');
 let counting = $('#counting');
 let saveTime = 1;
 
-let line_width = 5;
 let winner = null;
 
 let clickX = [];
@@ -17,6 +16,9 @@ let clickDrag = [];
 
 let colorIndex = [];
 let colorValue = [];
+
+let lineIndex = [];
+let lineValue = [];
 
 let full_length = 0;
 let full_length_human = 0;
@@ -163,6 +165,22 @@ function load_ai() {
     });
 }
 
+function showPen() {
+    var penContainer = document.getElementById('line-container');
+    if (penContainer.style.display == "block") {
+        penContainer.style.display = "none";
+    } else {
+        penContainer.style.display = "block";
+    }
+}
+
+function changeRange() {
+    var line_value = document.getElementById("range").value;
+    document.getElementById("line_value").innerHTML = line_value + "px";
+    lineIndex.push(clickDrag.length);
+    lineValue.push(line_value);
+}
+
 function showButtonColor() {
     $('#start_button').html('Ready!<span></span>');
     var btn = document.getElementById('start_button');
@@ -296,9 +314,17 @@ function reset_all() {
     clickDrag = [];
     colorIndex = [];
     colorValue = [];
+    lineIndex = [];
+    lineValue = [];
+
     colorIndex.push(0);
     colorValue.push("#000000");
     document.getElementById("palette").value = "#000000";
+    lineIndex.push(0);
+    lineValue.push(5);
+    document.getElementById("range").value = 5;
+    document.getElementById("line_value").innerHTML = "5px";
+
     full_length = 0;
     full_length_human = 0;
     saveTime = 1;
@@ -392,7 +418,6 @@ function redraw(context, clickX, clickY, clickDrag, num, is_human) {
     context.clearRect(0, 0, 500, 500);
 
     context.lineJoin = "round";
-    context.lineWidth = line_width;
 
     for (var i = 0; i < num; i++) {
         if (colorIndex.length > 1 && is_human) {
@@ -403,6 +428,16 @@ function redraw(context, clickX, clickY, clickDrag, num, is_human) {
             }
         } else {
             context.strokeStyle = "#000000";
+        }
+
+        if (lineIndex.length > 1 && is_human) {
+            for (var j = 0; j < lineIndex.length; j++) {
+                if (i >= lineIndex[j]) {
+                    context.lineWidth = lineValue[j];
+                }
+            }
+        } else {
+            context.lineWidth = 5;
         }
         
 

@@ -66,6 +66,8 @@
 .left-slider {
     width: 225px;
     height: 100%;
+    min-height: 800px;
+    position: relative;
     z-index: 1;
     padding: 30px;
     background: url(assets/img/slider.png) no-repeat 0 0;
@@ -83,6 +85,7 @@ span.title-span {
     top: 0;
     right: 0;
     display: grid;
+    min-width: 1101px;
     background-color: black;
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
     grid-gap: 0;
